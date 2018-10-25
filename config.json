@@ -1,0 +1,37 @@
+{
+  "description": "GlusterFS plugin for Docker",
+  "entrypoint": [
+    "/entrypoint.sh",
+    "node",
+    "index.js"
+  ],
+  "env": [
+
+  ],
+  "Args": {
+    "Description": "Arguments to be passed to the plugin",
+    "Name": "args",
+    "Settable": ["value"],
+    "Value": []
+  },
+  "interface": {
+    "socket": "glusterdrv.sock",
+    "types": [
+      "docker.volumedriver/1.0"
+    ]
+  },
+  "linux": {
+    "capabilities": [
+      "CAP_SYS_ADMIN"
+    ],
+    "devices": [
+      {
+        "path": "/dev/fuse"
+      }
+    ]
+  },
+  "network": {
+    "type": "host"
+  },
+  "propagatedmount": "/var/lib/docker/glusterdrv"
+}

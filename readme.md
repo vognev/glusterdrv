@@ -1,0 +1,1 @@
+naїve glusterfs volume plugin implementation for docker
